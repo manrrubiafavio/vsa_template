@@ -1,0 +1,2 @@
+* Impedir poder eliminar usuario propio.
+* Adaptative mode.
