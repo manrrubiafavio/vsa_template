@@ -54,6 +54,7 @@ export default function CreateProduct() {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        handleSaveDetail()
         try {
             const response = await axios.post(`${BACK_URL}/product/create`, newProduct,
                 {
@@ -68,6 +69,7 @@ export default function CreateProduct() {
                 category: '',
                 details: []
             })
+            setImagesUploaded([])
             toast.success(response.data)
         } catch (error: any) {
             toast.error(error.response.data)
@@ -125,7 +127,7 @@ export default function CreateProduct() {
             stock: 0,
             image: []
         })
-        setImagesUploaded([])
+        
 
     }
 
@@ -205,7 +207,6 @@ export default function CreateProduct() {
                             }}
                         />
                     </div>
-                    <button className={Styles.SaveButton} type="button" onClick={handleSaveDetail} > Guardar detalle</button>
                     <button className={Styles.CreateButton} type="submit"> Crear producto </button>
                 </form>
 
