@@ -88,7 +88,6 @@ const createAdmin = async (req: Request, res: Response) => {
             lastName,
 
         })
-        console.log(back_url)
         if (newUser) {
             const token = jwt.sign({ id: newUser.id, email: newUser.email }, jwt_secret, { expiresIn: '1h' })
             
@@ -282,22 +281,8 @@ const logout = async (req: Request, res: Response) => {
 }
 
 const getAllUsers = async (req:Request, res:Response) => {
-<<<<<<< HEAD
     try {
         const allArray = await User.findAll();
-=======
-    const { id } = res.locals.userData
-    try {
-        const allArray = await User.findAll({
-            where: 
-            {
-                id: {
-                    [Op.ne]: id
-                }
-            }
-            
-        });
->>>>>>> 2f3c097 (sync)
         return res.status(200).json(allArray)
     } catch (error) {
         return res.status(500).send('Server error')        
