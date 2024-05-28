@@ -4,12 +4,7 @@ import { Op } from "sequelize";
 
 
 const createProduct = async (req: Request, res: Response) => {
-    const oneProduct = req.body;
-<<<<<<< HEAD
-=======
-    console.log(oneProduct)
->>>>>>> 2f3c097 (sync)
-    
+    const oneProduct = req.body;    
     try {
         const productExist = await Product.findOne({
             where: {
@@ -33,11 +28,8 @@ const createProduct = async (req: Request, res: Response) => {
                     size: oneColor.size,
                 })
             }
-<<<<<<< HEAD
-            res.status(201).send('Producto añadido')
-=======
             res.status(201).json('Producto añadido')
->>>>>>> 2f3c097 (sync)
+
         } else {
             res.status(400).send('Producto existente, revisa el stock')
         }
