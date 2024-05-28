@@ -54,7 +54,7 @@ export default function CreateProduct() {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        handleSaveDetail()
+        await handleSaveDetail()
         try {
             const response = await axios.post(`${BACK_URL}/product/create`, newProduct,
                 {
